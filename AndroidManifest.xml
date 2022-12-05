@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.social_distancing_assistant">
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_my_icon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_my_icon_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <service
+            android:name="com.example.social_distancing_assistant.DiscoveringService"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+        <service
+            android:name="com.example.social_distancing_assistant.ADService"
+            android:foregroundServiceType="location"
+            android:enabled="true"
+            android:exported="false" />
+        <service
+            android:name="com.example.social_distancing_assistant.MyTileService"
+            android:enabled="true"
+            android:exported="true"
+            android:icon="@drawable/ic_distance_tile"
+            android:label="Social Distancing"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.service.quicksettings.ACTIVE_TILE"
+                android:value="true" />
+        </service>
+
+        <activity
+            android:name="com.example.social_distancing_assistant.WhitelistActivity"
+            android:label="Whitelist"
+            android:parentActivityName="com.example.social_distancing_assistant.MainActivity"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.WHITELIST" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.example.social_distancing_assistant.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.social_distancing_assistant.TutorialPage1Activity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.example.social_distancing_assistant.TutorialPage2Activity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.example.social_distancing_assistant.TutorialPage3Activity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.example.social_distancing_assistant.TutorialPage4Activity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="com.example.social_distancing_assistant.TutorialPage5Activity"
+            android:theme="@style/AppTheme.NoActionBar" ></activity>
+    </application>
+
+</manifest>
