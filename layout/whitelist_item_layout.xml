@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/ic_my_icon_background"
+    android:background="@drawable/list_elem_shape"
+    >
+
+    <TextView
+        android:id="@+id/list_elem_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginLeft="6dp"
+        android:textSize="18sp" />
+
+    <ImageButton
+        android:id="@+id/delete_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="6dp"
+        android:background="#00FFFFFF"
+        android:src="@android:drawable/ic_menu_delete"
+        android:tint="#FFFFFF" />
+
+
+</RelativeLayout>
